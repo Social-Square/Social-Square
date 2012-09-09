@@ -1,0 +1,71 @@
+﻿<html>
+	<head>
+		<title>Twitter Page</title>
+   	<link href='http://api.mobilis.co.kr/webfonts/css/?fontface=NanumGothicWeb' rel='stylesheet' type='text/css' />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+		<script type="text/javascript" src="../jquery-1.8.0.min.js"></script>
+<script type="text/javascript" src="men.js"></script>
+<script type="text/javascript">
+var userr = "computers_bot";
+	$(document).ready(function(){
+	    $('#content').twitterMentions(['infectedfx',userr],{ 
+			avatar : true,
+			maximum : 100,
+			ulClass : 'twitter-mentions',
+			odd : true,
+			oddClass : 'odd'
+		});
+	});
+setTimeout("history.go(0);", 9000);     
+</script>
+<style type="text/css" media="screen">
+body {
+	font-family:NanumGothicWeb;
+	font-size:12px;
+}
+a {
+	color:#000;
+	text-decoration:none;
+}
+a:hover {
+	color: #F60;
+}
+#content {
+	width:350px;
+	margin:0 auto 50px auto;
+}
+ul.twitter-mentions {
+	list-style:none;
+	margin:0;
+	padding:0;
+}
+ul.twitter-mentions li {
+	overflow:hidden;
+	padding:5px 10px;
+
+}
+ul.twitter-mentions img {
+	float:left;
+
+	padding:2px;
+	margin:0 10px 0 0;
+}
+</style>
+	</head>
+	<body bgcolor="7fb5ff">
+	<div style="position:absolute;left:5%;top:6%;"><img src="twittertitle.png" width=120% height=10%></div>
+	<div style="position:absolute;right:9%;top:3%;">
+		<a href="p2twitter.html"><input type="image" src="Timeline.jpg" width=160px height=86px></a>
+		<a href="p2mention.html"><input type="image"src="mention.jpg"width=160px height=86px></a></div>
+	<div style="position:absolute;left:5%;top:18%;width:90%;height:2px;background-color:white;"></div>
+		<div id="header">
+		</div>	
+
+		<div id="content" style="position:absolute;left:5%;top:20%;width:85%;height:70%;">
+	
+		</div>
+
+		<div id="footer">
+		</div>
+	</body>
+</html>

@@ -1,0 +1,170 @@
+﻿<html>
+	<head>
+		<title>Weather Page</title>
+		<style type="text/css"> html { overflow:hidden; } </style>
+		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"></script>
+		<link href='http://api.mobilis.co.kr/webfonts/css/?fontface=DroidSansWeb'
+        rel='stylesheet' type='text/css' />
+	<script>
+	var a;
+	function getW( d ){
+
+		a = d;
+
+		today = d.forecast.simpleforecast.forecastday[0]; 
+		tomorrow = d.forecast.simpleforecast.forecastday[1];
+		after_tomorrow = d.forecast.simpleforecast.forecastday[2];
+
+
+		yahoo_weather = [
+			"tstorms",
+			"cloudy",
+			"mostlycloudy",
+			"rain",
+			"partlycloudy",
+			"/ig/images/weather/sunny.gif",
+			"/ig/images/weather/mist.gif",
+			"/ig/images/weather/fog.gif",
+			"/ig/images/weather/mostly_cloudy.gif",
+			"/ig/images/weather/mostly_cloudly.gif",
+			"/ig/images/weather/partly_cloudy.gif",
+			"/ig/images/weather/haze.gif",
+			"/ig/images/weather/smoke.gif",
+			"/ig/images/weather/flurries.gif",
+			"/ig/images/weather/chance_of_rain.gif",
+			"/ig/images/weather/mostly_sunny.gif",
+			"/ig/images/weather/chance_of_tstorm.gif",
+			"/ig/images/weather/sleet.gif",
+			"/ig/images/weather/snow.gif",
+			"/ig/images/weather/icy.gif",
+			"/ig/images/weather/dust.gif",
+			"/ig/images/weather/chance_of_storm.gif" ];
+		disp_weather = [
+			'weather_storm.png',
+			'weather_cloudy.png',
+			'weather_mostlycloudy.png',
+			'weather_rain.png',
+			'weather_cloudy.png',
+			'weather_sunny.png',
+			'weather_storm.png',
+			'weather_storm.png',
+			'weather_fog.png',
+			'weather_mostlycloudy.png',
+			'weather_haze.png',
+			'weather_haze.png',
+			'weather_icyrain.png' ,
+			'weather_chancestorm.png',
+			'weather_mostlysunny.png',
+			'weather_chancestorm.png',	// 원래는 tstorm
+			'weather_snow.png',
+			'weather_snow.png',
+			'weather_snow.png',
+			'weather_dust.png',
+			'weather_chancestorm.png' ];
+
+		for (i = 0; i < yahoo_weather.length; i++ )
+			if( today.icon == yahoo_weather[ i ] )
+				weathericon.src = disp_weather[ i ];
+
+		for (i = 0; i < yahoo_weather.length; i++ )
+			if( today.icon == yahoo_weather[ i ] )
+				todaysmall.src = disp_weather[ i ];
+
+		for (i = 0; i < yahoo_weather.length; i++ )
+			if( tomorrow.icon == yahoo_weather[ i ] )
+				tomorrow_weathericon.src = disp_weather[ i ];
+
+	
+		for (i = 0; i < yahoo_weather.length; i++ )
+			if( after_tomorrow.icon == yahoo_weather[ i ] )
+				after_tomorrowweathericon.src = disp_weather[ i ];
+		$("#todaywindspeed").text(today.avewind.kph + " Km/H " );
+		$("#todayrained").text(today.qpf_allday.mm + " mm " );
+
+		$("#today_humid").text(today.avehumidity + " % " );
+		$("#tomorrow_humid").text(tomorrow.avehumidity + " % " );
+		$("#today_humid1").text(today.avehumidity + " % " );
+		
+		$("#totomorrow_humid").text(after_tomorrow.avehumidity + " % " );
+		$("#winddirection").text(today.maxwind.dir);
+		$("#today_temp1").text(today.low.celsius + " / " + today.high.celsius);
+		$("#today_temp").text(today.low.celsius + " / " + today.high.celsius);
+		$("#tomorrow_temp").text(tomorrow.low.celsius + " / " + tomorrow.high.celsius);
+		$("#after_tomorrow_temp").text(after_tomorrow.low.celsius + " / " + after_tomorrow.high.celsius);
+	}
+	$(document).ready(function() { 
+		$.getJSON( 'http://api.wunderground.com/api/2978246bdf00abc1/forecast/lang:KR/q/KR/Seoul.json?callback=getW&aa=?' );
+	} );
+
+
+  
+
+
+
+	
+</script>
+
+	
+	</head>
+	
+	<body bgcolor="d34927" style="font-family: 'DroidSansWeb';">
+	
+	<div style="position:absolute;left:5%;top:6%;"><img src="weather.png" width=90% height=10%></div>
+	<div style="position:absolute;left:5%;top:15%;width:80%;height:2px;background-color:white;"></div>
+	<div style="position:absolute;left:5%;top:15%;">
+	<img id=weathericon width=300px height=300px> 
+	<div id=today_temp1 style="position:absolute;font-size:45px;color:white;left:22%;"></div>
+	<div id=today_humid1 style="font-size:45px;color:white;position:absolute;left:30%;bottom:-35%;"></div>
+	</div>
+	<div style="position:absolute;right:37%;top:20%;width:20%;height:20%;">
+	 <font color = white size=6>&nbsp&nbsp풍향</font>
+	 <div id=winddirection style="position:absolute;font-size:30px;color:black;"></div>
+	 
+	  </div>
+	  <div style="position:absolute;left:54%;top:20%;width:20%;height:20%;">
+	 <font color = white size=6>&nbsp&nbsp&nbsp&nbsp풍속</font></div>
+	 <br>
+	 <div id=todaywindspeed style="position:absolute;font-size:30px;color:black;top:26%;left:56%;"></div>
+	 
+	  </div>
+	  	  </div>
+	  <div style="position:absolute;left:69%;top:20%;width:20%;height:20%;">
+	 <font color = white size=6>총강수량</font>
+	 <br>
+</div>
+
+
+
+	 <div id=todayrained style="position:absolute;font-size:30px;color:black;top:26%;left:70.4%;"></div>
+	 
+	  </div>
+	
+	<div style="position:absolute;right:40%;top:50%;">
+	
+	<center>
+	<img id="todaysmall" width=100px height=100px><br>
+	<div id=today_temp style="font-size:30px;color:white;"></div>
+	<div id=today_humid style="font-size:30px;color:white;"></div>
+	<img src="today.png">
+	</center>
+	</div>
+        <div style="position:absolute;right:25%;top:50%;">
+	<center>
+	<img id="tomorrow_weathericon" width=100px height=100px><br>
+	<div id=tomorrow_temp style="font-size:30px;color:white;"></div>
+	<div id=tomorrow_humid style="font-size:30px;color:white;"></div>
+	<img src="tomorrow.png">
+	</center>
+	</div>
+<div style="position:absolute;right:10%;top:50%;">
+	<center>
+	<img id="after_tomorrowweathericon" width=100px height=100px><br>
+	<div id=after_tomorrow_temp style="font-size:30px;color:white;"></div>
+	<div id=totomorrow_humid style="font-size:30px;color:white;"></div>
+	<img src="totomorrow.png">
+	</center>
+	</div>
+	
+
+	</body>
+</html>
