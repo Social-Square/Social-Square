@@ -1,0 +1,236 @@
+﻿<html>
+	<head>
+		<title>rss page</title>
+   	<link href='http://api.mobilis.co.kr/webfonts/css/?fontface=NanumGothicWeb' rel='stylesheet' type='text/css' />
+	<link href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8/themes/base/jquery-ui.css" rel="stylesheet" type="text/css"/>
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.5/jquery.min.js"></script>
+	<script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8/jquery-ui.min.js"></script>
+
+		<style type="text/css"> html { overflow:hidden; } 
+
+
+body {
+	font-family:NanumGothicWeb;
+	font-size:12px;
+}
+a {
+	color:white;
+	text-decoration:none;
+}
+a:hover {
+	color: green;
+}
+</style>
+		<script src="../jquery-1.8.0.min.js"></script>
+		<script>
+		$(document).ready(function() {
+			$("button").button();
+			$("#radio").buttonset();
+		});
+
+				$('#bookmarklist').click(function(){
+					$(this).animate({width:"100%",height:"100%", left:"0%", right:"0%", bottom:"0%"},200)
+					$('#bookmarklist').animate({width:"100%", height:"100%", right:"0%", bottom:"0%"}, 200)
+	
+				});
+		var rr;
+		function seturl(){
+			var feedurl;
+		 	feedurl= rssfield.value 
+			url = feedurl.trim();
+			$.ajax( { url: "http://www.blastcasta.com/feed-to-json.aspx?feedurl=" + url + '&param=aa&_=?', dataType: "JSON", complete: function( r ){
+
+
+				rr = aa;
+				s = "";
+				i = aa.rss.channel[ 0 ].item;
+				for( var t in i ){
+
+					link =  i[t]['link'];
+					s = s + "<a href="+ link +"><font size='6'><b>"+i[t]['title']+"</b></font></a><br><br><br>";
+					for( var k in i[ t ] ){
+
+						if (k == 'description')
+							s = s + i[t][k] + "<br><br><br><br>";
+
+
+					}
+				}
+				feedbody.innerHTML = s;
+			} } )
+		};;		
+		function clicksokbo(){
+			var feedurl;
+		 	feedurl= rssfield.value 
+			url = feedurl.trim();
+			$.ajax( { url: "http://www.blastcasta.com/feed-to-json.aspx?feedurl=" + "http://www.yonhapnews.co.kr/RSS/sokbo.xml" + '&param=aa&_=?', dataType: "JSON", complete: function( r ){
+
+
+				rr = aa;
+				s = "";
+				i = aa.rss.channel[ 0 ].item;
+				for( var t in i ){
+
+					link =  i[t]['link'];
+					s = s + "<a href="+ link +"><font size='6'><b>"+i[t]['title']+"</b></font></a><br><br><br>";
+					for( var k in i[ t ] ){
+
+						if (k == 'description')
+							s = s + i[t][k] + "<br><br><br><br>";
+
+
+					}
+				}
+				feedbody.innerHTML = s;
+			} } )
+		};;		
+	function clickit(){
+			var feedurl;
+		 	feedurl= rssfield.value 
+			url = feedurl.trim();
+			$.ajax( { url: "http://www.blastcasta.com/feed-to-json.aspx?feedurl=" + "http://www.yonhapnews.co.kr/RSS/economy.xml" + '&param=aa&_=?', dataType: "JSON", complete: function( r ){
+
+				rr = aa;
+				s = "";
+				i = aa.rss.channel[ 0 ].item;
+				for( var t in i ){
+
+					link =  i[t]['link'];
+					s = s + "<a href="+ link +"><font size='6'><b>"+i[t]['title']+"</b></font></a><br><br><br>";
+					for( var k in i[ t ] ){
+
+						if (k == 'description')
+							s = s + i[t][k] + "<br><br><br><br>";
+
+
+					}
+				}
+				feedbody.innerHTML = s;
+			} } )
+		};;		
+		function clickpolitics(){
+			var feedurl;
+		 	feedurl= rssfield.value 
+			url = feedurl.trim();
+			$.ajax( { url: "http://www.blastcasta.com/feed-to-json.aspx?feedurl=" + "http://www.yonhapnews.co.kr/RSS/politics.xml" + '&param=aa&_=?', dataType: "JSON", complete: function( r ){
+
+
+				rr = aa;
+				s = "";
+				i = aa.rss.channel[ 0 ].item;
+				for( var t in i ){
+
+					link =  i[t]['link'];
+					s = s + "<a href="+ link +"><font size='6'><b>"+i[t]['title']+"</b></font></a><br><br><br>";
+					for( var k in i[ t ] ){
+
+						if (k == 'description')
+							s = s + i[t][k] + "<br><br><br><br>";
+
+
+					}
+				}
+				feedbody.innerHTML = s;
+			} } )
+		};;		
+	function clicksports(){
+			var feedurl;
+		 	feedurl= rssfield.value 
+			url = feedurl.trim();
+			$.ajax( { url: "http://www.blastcasta.com/feed-to-json.aspx?feedurl=" + "http://www.yonhapnews.co.kr/RSS/sports.xml" + '&param=aa&_=?', dataType: "JSON", complete: function( r ){
+
+
+				rr = aa;
+				s = "";
+				i = aa.rss.channel[ 0 ].item;
+				for( var t in i ){
+
+					link =  i[t]['link'];
+					s = s + "<a href="+ link +"><font size='6'><b>"+i[t]['title']+"</b></font></a><br><br><br>";
+					for( var k in i[ t ] ){
+
+						if (k == 'description')
+							s = s + i[t][k] + "<br><br><br><br>";
+
+
+					}
+				}
+				feedbody.innerHTML = s;
+			} } )
+		};;		
+	function clickent(){
+			var feedurl;
+		 	feedurl= rssfield.value 
+			url = feedurl.trim();
+			$.ajax( { url: "http://www.blastcasta.com/feed-to-json.aspx?feedurl=" + "http://www.yonhapnews.co.kr/RSS/entertainment.xml" + '&param=aa&_=?', dataType: "JSON", complete: function( r ){
+
+
+				rr = aa;
+				s = "";
+				i = aa.rss.channel[ 0 ].item;
+				for( var t in i ){
+
+					link =  i[t]['link'];
+					s = s + "<a href="+ link +"><font size='6'><b>"+i[t]['title']+"</b></font></a><br><br><br>";
+					for( var k in i[ t ] ){
+
+						if (k == 'description')
+							s = s + i[t][k] + "<br><br><br><br>";
+
+
+					}
+				}
+				feedbody.innerHTML = s;
+			} } )
+		};;	
+	function clickstock(){
+			var feedurl;
+		 	feedurl= rssfield.value 
+			url = feedurl.trim();
+			$.ajax( { url: "http://www.blastcasta.com/feed-to-json.aspx?feedurl=" + "http://www.yonhapnews.co.kr/RSS/stock.xml" + '&param=aa&_=?', dataType: "JSON", complete: function( r ){
+
+
+				rr = aa;
+				s = "";
+				i = aa.rss.channel[ 0 ].item;
+				for( var t in i ){
+
+					link =  i[t]['link'];
+					s = s + "<a href="+ link +"><font size='6'><b>"+i[t]['title']+"</b></font></a><br><br><br>";
+					for( var k in i[ t ] ){
+
+						if (k == 'description')
+							s = s + i[t][k] + "<br><br><br><br>";
+
+
+					}
+				}
+				feedbody.innerHTML = s;
+			} } )
+		};;	
+
+
+		</script>
+	</head>
+	<body bgcolor=#67b21c>
+	<div style="position:absolute;left:5%;top:5%;"><img src="rssfeed.png" width=90% height=12%></div>
+	<div style="position:absolute;left:5%;top:15%;width:90%;height:2px;background-color:white;"></div>
+
+	<textarea style="position:absolute;height:8%;width:80%;top:17.5%;left:5%;z-index:5;color:white;background-color:transparent;"id=rssfield>여기에 주소를 입력하세요 </textarea>
+	<div style="position:absolute;right:5%;top:28%;width:66px;height:2px;background-color:white;"></div>
+
+<div id="bookmarklist" align="center" style="position:absolute;background-color:;left:90%;top:28%;width:66px;height:40%;z-index:5;">
+<br>	
+	<input id="11" type='button' value="속보" cols="60" onclick="clicksokbo()" STYLE="width:58px;">
+	<input type='button' value="정치" onclick="clickpolitics()" STYLE="width:58px;">
+	<input type='button' value="스포츠" onclick="clicksports()" STYLE="width:58px;">
+	<input type='button' value="IT" onclick="clickit()" STYLE="width:58px;">
+	<input type='button' value="증권" onclick="clickstock()" STYLE="width:58px;">
+	<input type='button' value="연예" onclick="clickent()" STYLE="width:58px;"></div>
+<div style="position:absolute;left:90%;top:17.5%;color:white;"><input color='white' id=addrss type=image src="addrss.png" OnClick="seturl();"></div>
+		
+	<div id=feedbody style="position:absolute;top:30%;left:5%;width:80%;height:60%;overflow:auto; green solid;"></div>
+
+
+	</body>
+</html>
